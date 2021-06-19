@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import currentuserReducer from '../reducers/current'
+import { userReducer } from '../reducers/current'
 
 export const store = configureStore({
   reducer: {
-    currentuser: currentuserReducer,
+    userReducer,
   }
-});
+},   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
