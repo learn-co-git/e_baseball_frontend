@@ -1,19 +1,18 @@
 import React from 'react';
-import './App.css';
-import { LoginForm } from './components/LoginForm'
-import { SignupForm } from './components/Signup'
+import { LoginSignup } from './components/LoginSignup'
 import { getCurrentUser } from './reducers/current'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useStore } from 'react-redux'
 
 const App = () => {
   const dispatch = useDispatch()
+  const store = useStore()
     dispatch(getCurrentUser())
 
-
+    const currentState = store.getState()
 
   return (
     <div>
-      {<LoginForm/>}{<SignupForm/>}
+      {<LoginSignup/>}
       <section>
       </section>
     </div>
