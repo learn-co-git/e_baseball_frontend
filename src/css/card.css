@@ -1,0 +1,28 @@
+.img {
+  width: 60%;
+    max-width: 210px;
+    max-height: 270px;
+    min-width: 210px;
+    min-height: 270px;
+    padding: 15px;
+      }
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+p {
+  text-align: left;
+
+}
+
+.span {
+  text-align: left;
+  justify-content: center;
+}
+
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

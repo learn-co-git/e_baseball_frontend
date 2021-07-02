@@ -17,5 +17,16 @@ export const collectionReducer = createReducer(initialState, (builder) => {
     .addCase(clearCollection, (state, action) => {
       state = []
     })
-    .addDefaultCase((state) => state)
 })
+
+export function fetchCollection() {
+  return async dispatch => {
+    try {
+      const result = await fetch("http://127.0.0.1:3001/collection")
+      const data = await result.json()
+      dispatch(addCollection(data))
+    } catch (error) {
+      console.log("Error")
+    }
+  }
+}

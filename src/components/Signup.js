@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addCurrentUser, fetchUser } from '../reducers/current'
+import { addCurrentUser, fetchUser, userCreate } from '../reducers/current'
 import { unwrapResult } from '@reduxjs/toolkit'
 
 export const SignupForm = () => {
+
+  const dispatch = useDispatch()
 
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
@@ -14,6 +16,19 @@ export const SignupForm = () => {
   const onPasswordChange = e => setPassword(e.target.value)
   const onEmailChange = e => setEmail(e.target.value)
   const onPassword2Change = e => setPassword2(e.target.value)
+
+  const createUser = () => {
+    const loginDetails = {
+      username: username,
+      email: email,
+      password: password
+    }
+    dispatch(userCreate(loginDetails))
+       setUsername('')
+       setPassword('')
+       setEmail('')
+       setPassword2('')
+  }
 
   return (
     <section>
@@ -50,6 +65,7 @@ export const SignupForm = () => {
           value={password2}
           onChange={onPassword2Change}
           />
+        <button type="button" onClick={createUser}>Create</button>
       </form>
     </section>
   )

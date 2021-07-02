@@ -27,14 +27,14 @@ export const LoginForm = () => {
       catch (err) {
          console.error('Failed to save the user: ', err)
        }
-
-    setUsername('')
-    setPassword('')
+       setUsername('')
+       setPassword('')
   }
 
   return (
     <section>
-      <h2>Login</h2>
+      <br></br>
+      <h3>please login</h3>
       <form>
         <label>Username: </label>
         <input
