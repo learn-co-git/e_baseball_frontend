@@ -1,6 +1,5 @@
 import { client } from './client'
-import { useDispatch } from 'react-redux'
-import { createSlice, createAsyncThunk, createAction, createReducer, current } from '@reduxjs/toolkit'
+import { createAsyncThunk, createAction, createReducer } from '@reduxjs/toolkit'
 
 
 export const fetchUser = createAsyncThunk('currentuser/addCurrentUser', async loginDetails => {

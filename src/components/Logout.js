@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux'
 import { userLogOut } from '../reducers/current'
 import { clearCollection } from '../reducers/card'
 import { useDispatch, useSelector } from 'react-redux'

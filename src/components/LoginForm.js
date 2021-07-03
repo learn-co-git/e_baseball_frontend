@@ -4,7 +4,7 @@ import '../css/login.css'
 import { addCurrentUser, fetchUser } from '../reducers/current'
 import { unwrapResult } from '@reduxjs/toolkit'
 
-export const LoginForm = () => {
+const LoginForm = () => {
 
   const dispatch = useDispatch()
 
@@ -55,3 +55,5 @@ export const LoginForm = () => {
       </section>
   )
 }
+
+export default LoginForm

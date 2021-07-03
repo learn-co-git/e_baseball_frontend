@@ -1,9 +1,7 @@
 import React from 'react';
-import { useDispatch, connect } from 'react-redux'
-import { fetchCollection, clearCollection } from '../reducers/card'
 import Cards from './Cards'
-import { LogOut } from './Logout'
 import Market from './Market'
+import {Link} from 'react-router-dom'
 
 export class Home extends React.Component {
 

@@ -1,8 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { client } from './client'
-import { useDispatch } from 'react-redux'
-import { createAction, createReducer, current } from '@reduxjs/toolkit'
-
+import { createAction, createReducer } from '@reduxjs/toolkit'
 
 const initialState = []
 

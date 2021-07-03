@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addCurrentUser, fetchUser, userCreate } from '../reducers/current'
-import { unwrapResult } from '@reduxjs/toolkit'
+import { userCreate } from '../reducers/current'
 
-export const SignupForm = () => {
+const SignupForm = () => {
 
   const dispatch = useDispatch()
 
@@ -70,3 +69,5 @@ export const SignupForm = () => {
     </section>
   )
 }
+
+export default SignupForm

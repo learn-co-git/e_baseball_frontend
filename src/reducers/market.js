@@ -1,4 +1,3 @@
-import { useDispatch } from 'react-redux'
 import { createAction, createReducer } from '@reduxjs/toolkit'
 
 let initialState = []

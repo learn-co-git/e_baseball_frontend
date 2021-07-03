@@ -1,6 +1,6 @@
 import React from 'react';
-import { LoginForm } from './LoginForm'
-import { SignupForm } from './Signup'
+import LoginForm from './LoginForm'
+import SignupForm from './Signup'
 import '../css/login.css'
 
 export const LoginSignup = () => {

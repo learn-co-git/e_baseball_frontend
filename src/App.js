@@ -6,13 +6,12 @@ import { clearCollection, fetchCollection } from './reducers/card'
 import { fetchMarket, clearMarket } from './reducers/market'
 import { useDispatch, useStore } from 'react-redux'
 import { Home } from './components/Home'
-import { LoginForm } from './components/LoginForm'
-import { SignupForm } from './components/Signup'
+import LoginForm from './components/LoginForm'
+import SignupForm from './components/Signup'
 import { LogOut } from './components/Logout'
 import './App.css'
-
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Market from './components/Market'
+import NavBar from './components/NavBar'
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 
 class App extends React.Component {
@@ -34,9 +33,15 @@ class App extends React.Component {
       <div className="header">
         <h1>E-Baseball</h1>
         <h2>A marketplace for baseball trading cards</h2>
-        { loggedIn > 0 ? <LogOut/> : null }
+        { loggedIn > 0 ? <LogOut/> : <NavBar/> }
       </div>
-      { loggedIn > 0 ? <Home/> : <LoginForm/> }
+      { loggedIn > 0 ? <Home/> : null }
+      <Router>
+        <Switch>
+          <Route path="/login" exact component={LoginForm}/>
+          <Route path="/signup" exact component={SignupForm}/>
+          </Switch>
+        </Router>
     </div>
   )
   }
