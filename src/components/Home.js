@@ -1,7 +1,6 @@
 import React from 'react';
 import Cards from './Cards'
 import Market from './Market'
-import {Link} from 'react-router-dom'
 
 export class Home extends React.Component {
 

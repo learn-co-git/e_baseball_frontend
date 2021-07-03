@@ -1,16 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { LoginSignup } from './components/LoginSignup'
 import { getCurrentUser } from './reducers/current'
 import { clearCollection, fetchCollection } from './reducers/card'
 import { fetchMarket, clearMarket } from './reducers/market'
-import { useDispatch, useStore } from 'react-redux'
 import { Home } from './components/Home'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/Signup'
-import { LogOut } from './components/Logout'
+import Welcome from './components/Welcome'
 import './App.css'
-import NavBar from './components/NavBar'
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 
@@ -30,16 +27,13 @@ class App extends React.Component {
     }
     return (
       <div>
-      <div className="header">
-        <h1>E-Baseball</h1>
-        <h2>A marketplace for baseball trading cards</h2>
-        { loggedIn > 0 ? <LogOut/> : <NavBar/> }
-      </div>
       { loggedIn > 0 ? <Home/> : null }
       <Router>
         <Switch>
+          <Route exact path="/" component={Welcome}/>
           <Route path="/login" exact component={LoginForm}/>
           <Route path="/signup" exact component={SignupForm}/>
+          <Route path="/home" component={Home}/>
           </Switch>
         </Router>
     </div>
