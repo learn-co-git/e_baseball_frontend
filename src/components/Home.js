@@ -1,12 +1,14 @@
 import React from 'react';
 import Cards from './Cards'
 import Market from './Market'
+import WelcomeUser from './WelcomeUser'
 
 export class Home extends React.Component {
 
   render(){
     return (
       <div>
+        <WelcomeUser/>
         <div>
           <section>
             <h2>Market Place</h2>

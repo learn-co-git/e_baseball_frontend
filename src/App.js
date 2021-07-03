@@ -8,7 +8,7 @@ import LoginForm from './components/LoginForm'
 import SignupForm from './components/Signup'
 import Welcome from './components/Welcome'
 import './App.css'
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router, Redirect } from "react-router-dom";
 
 
 class App extends React.Component {
@@ -16,6 +16,22 @@ class App extends React.Component {
   componentDidMount() {
     this.props.getCurrentUser()
     this.props.fetchMarket()
+  }
+
+   removeItems() {
+    if (this.props.loggedIn == null) {
+      return (
+        <div>
+      <Route exact path="/" exact component={Welcome}/>
+      <Route exact path="/login" exact component={LoginForm}/>
+      <Route exact path="/signup" exact component={SignupForm}/>
+      </div>
+      )
+    } else {
+      return (
+        <Redirect to="/home" />
+      )
+    }
   }
 
   render(){
@@ -30,10 +46,8 @@ class App extends React.Component {
       { loggedIn > 0 ? <Home/> : null }
       <Router>
         <Switch>
-          <Route exact path="/" component={Welcome}/>
-          <Route path="/login" exact component={LoginForm}/>
-          <Route path="/signup" exact component={SignupForm}/>
-          <Route path="/home" component={Home}/>
+          { this.removeItems() }
+          <Route exact path="/home" exact component={Home}/>
           </Switch>
         </Router>
     </div>
