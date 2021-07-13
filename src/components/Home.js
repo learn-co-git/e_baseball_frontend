@@ -2,8 +2,13 @@ import React from 'react';
 import Cards from './Cards'
 import Market from './Market'
 import WelcomeUser from './WelcomeUser'
+import SellCard from './SellCard'
 
 export class Home extends React.Component {
+
+  sellCard() {
+    return <SellCard/>
+  }
 
   render(){
     return (
@@ -16,6 +21,7 @@ export class Home extends React.Component {
             </section>
           <section>
             <h2>Your Store</h2>
+            <button className="button" type="button" onClick={SellCard}>SELL</button>
           <Cards/>
           </section>
         </div>

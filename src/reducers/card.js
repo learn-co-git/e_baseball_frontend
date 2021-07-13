@@ -28,6 +28,7 @@ export function fetchCollection() {
 }
 
 export function cardUpdate(buyDetails) {
+  console.log(buyDetails)
   return async dispatch => {
   const response = await fetch("http://127.0.0.1:3001/buy", {
     method: "PUT",

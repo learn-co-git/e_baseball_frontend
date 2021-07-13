@@ -22,9 +22,9 @@ class App extends React.Component {
     if (this.props.loggedIn == null) {
       return (
         <div>
-      <Route exact path="/" exact component={Welcome}/>
-      <Route exact path="/login" exact component={LoginForm}/>
-      <Route exact path="/signup" exact component={SignupForm}/>
+      <Route exact path="/" component={Welcome}/>
+      <Route exact path="/login" component={LoginForm}/>
+      <Route exact path="/signup" component={SignupForm}/>
       </div>
       )
     } else {

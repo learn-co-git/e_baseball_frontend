@@ -7,8 +7,8 @@ const Welcome = (props) => {
 return (
   <div>
     <div className="header">
-      <h1>E-Baseball</h1>
-      <h2>A marketplace for baseball trading cards</h2>
+      <h1>E-BASEBALL</h1>
+      <h2> The Marketplace for Baseball Trading Cards</h2>
       { props.loggedIn > 0 ? <LogOut/> : <NavBar/> }
     </div>
   </div>
