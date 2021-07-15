@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { LogOut } from './Logout'
-import NavBar from './NavBar'
 
 const WelcomeUser = (props) => {
 return (

@@ -47,7 +47,7 @@ class App extends React.Component {
       <Router>
         <Switch>
           { this.removeItems() }
-          <Route exact path="/home" exact component={Home}/>
+          <Route exact path="/home" component={Home}/>
           </Switch>
         </Router>
     </div>

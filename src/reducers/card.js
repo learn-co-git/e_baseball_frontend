@@ -30,7 +30,7 @@ export function fetchCollection() {
 export function cardUpdate(buyDetails) {
   console.log(buyDetails)
   return async dispatch => {
-  const response = await fetch("http://127.0.0.1:3001/buy", {
+  await fetch("http://127.0.0.1:3001/buy", {
     method: "PUT",
     headers: {
       "content-type": "application/json"
@@ -50,7 +50,7 @@ export function cardUpdate(buyDetails) {
 export function addNewCard(cardDetails) {
   console.log(cardDetails)
   return async dispatch => {
-  const response = await fetch("http://127.0.0.1:3001/newcard", {
+  await fetch("http://127.0.0.1:3001/newcard", {
     method: "POST",
     headers: {
       "content-type": "application/json"

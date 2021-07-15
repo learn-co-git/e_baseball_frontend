@@ -9,7 +9,7 @@ export const fetchUser = createAsyncThunk('currentuser/addCurrentUser', async lo
 
 export function userCreate(loginDetails) {
   return async dispatch => {
-  const response = await fetch("http://127.0.0.1:3001/new", {
+  await fetch("http://127.0.0.1:3001/new", {
     method: "POST",
     headers: {
       "content-type": "application/json"
@@ -43,7 +43,7 @@ export function userLogOut(id) {
     const userInfo = {
       user: id
     }
-  const result = await fetch("http://127.0.0.1:3001/logout", {
+  await fetch("http://127.0.0.1:3001/logout", {
     method: "POST",
     headers: {
       "content-type": "application/json"

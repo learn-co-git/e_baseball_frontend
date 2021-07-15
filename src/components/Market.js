@@ -17,7 +17,7 @@ const Market = props => {
   }
 
   const buyButton = (x) => {
-    if (x.sold_status == false || x.sold_status == null) {
+    if (x.sold_status === false || x.sold_status === null) {
     return (<form onSubmit={handleSubmit}> <input type="hidden" name="id" value={x.id}/> <input type="hidden" name="user" value={props.logged}/>  <button className="button" type="submit">BUY</button></form>)
   } else {
     return (<p>This item has sold</p>)
