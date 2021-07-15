@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react';
+import { useState } from 'react'
+import { useDispatch, connect } from 'react-redux'
+import { addNewCard } from '../reducers/card'
+import '../css/card.css'
 
-const SellCard = () => {
+const SellCard = props => {
 
   const dispatch = useDispatch()
 
@@ -20,70 +23,89 @@ const SellCard = () => {
   const onUrlChange = e => setUrl(e.target.value)
 
   const saveCard = () => {
+
     const cardDetails = {
       player_name: player_name,
       year: year,
       brand: brand,
       description: description,
       price: price,
-      url: url
+      url: url,
+      user: props.logged,
+      sold_status: false
     }
 
+    dispatch(addNewCard(cardDetails))
+      setPlayer_name('')
+      setyear('')
+      setBrand('')
+      setDescription('')
+      setUrl('')
+      setPrice('')
   }
 
-  return (
-    <section>
-      <h2>Sell Card</h2>
-      <form>
-        <label>Player: </label>
-        <input
-          type="text"
-          name="player_name"
-          value={player_name}
-          onChange={onPlayer_nameChange}
-          />
-        <br/>
-        <label>Year: </label>
-        <input
-          type="text"
-          name="year"
-          value={year}
-          onChange={onYearChange}
-          />
-        <br/>
-        <label>Brand: </label>
-        <input
-          type="text"
-          name="brand"
-          value={brand}
-          onChange={onBrandChange}
-          />
-        <br/>
-        <label>Description: </label>
-        <input
-          type="text"
-          name="description"
-          value={description}
-          onChange={onDescriptionChange}
-          />
-        <label>Price: </label>
+    return (
+      <section>
+        <h2>Sell Card</h2>
+        <form>
+          <label>Player: </label>
           <input
             type="text"
-            name="price"
-            value={price}
-            onChange={onPriceChange}
+            name="player_name"
+            value={player_name}
+            onChange={onPlayer_nameChange}
             />
-          <label>Url: </label>
+          <br/>
+          <label>Year: </label>
+          <input
+            type="text"
+            name="year"
+            value={year}
+            onChange={onYearChange}
+            />
+          <br/>
+          <label>Brand: </label>
+          <input
+            type="text"
+            name="brand"
+            value={brand}
+            onChange={onBrandChange}
+            />
+          <br/>
+          <label>Description: </label>
+          <input
+            type="text"
+            name="description"
+            value={description}
+            onChange={onDescriptionChange}
+            />
+          <br/>
+          <label>Price: </label>
             <input
               type="text"
-              name="url"
-              value={url}
-              onChange={onUrlChange}
+              name="price"
+              value={price}
+              onChange={onPriceChange}
               />
-            <button type="button" onClick={saveCard}>Sell</button>
-      </form>
-    </section>
-  )
-}
+            <br/>
+            <label>Url: </label>
+              <input
+                type="text"
+                name="url"
+                value={url}
+                onChange={onUrlChange}
+                />
+              <br/>
+              <button type="button" onClick={saveCard}>Sell</button>
+            </form>
+          </section>
+        )
+  }
 
-export default SellCard
+  const mapStateToProps = state => {
+    return {
+      logged: state.userReducer.id,
+    }
+  }
+
+export default connect(mapStateToProps)(SellCard)

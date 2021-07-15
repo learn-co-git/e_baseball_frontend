@@ -6,10 +6,6 @@ import SellCard from './SellCard'
 
 export class Home extends React.Component {
 
-  sellCard() {
-    return <SellCard/>
-  }
-
   render(){
     return (
       <div>
@@ -21,7 +17,7 @@ export class Home extends React.Component {
             </section>
           <section>
             <h2>Your Store</h2>
-            <button className="button" type="button" onClick={SellCard}>SELL</button>
+            <SellCard/>
           <Cards/>
           </section>
         </div>
@@ -31,7 +27,3 @@ export class Home extends React.Component {
       )
     }
   }
-
-
-
-export default Home;
