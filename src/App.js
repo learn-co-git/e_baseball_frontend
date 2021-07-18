@@ -3,13 +3,9 @@ import { connect } from 'react-redux'
 import { getCurrentUser } from './reducers/current'
 import { clearCollection, fetchCollection } from './reducers/card'
 import { fetchMarket, clearMarket } from './reducers/market'
+import { Welcome } from './components/Welcome'
 import { Home } from './components/Home'
-import LoginForm from './components/LoginForm'
-import SignupForm from './components/Signup'
-import Welcome from './components/Welcome'
 import './App.css'
-import { Route, Switch, BrowserRouter as Router, Redirect } from "react-router-dom";
-
 
 class App extends React.Component {
 
@@ -18,39 +14,17 @@ class App extends React.Component {
     this.props.fetchMarket()
   }
 
-   removeItems() {
-    if (this.props.loggedIn == null) {
-      return (
-        <div>
-      <Route exact path="/" component={Welcome}/>
-      <Route exact path="/login" component={LoginForm}/>
-      <Route exact path="/signup" component={SignupForm}/>
-      </div>
-      )
-    } else {
-      return (
-        <Redirect to="/home" />
-      )
-    }
-  }
-
   render(){
-    { this.props.fetchMarket() }
     const { loggedIn } = this.props
-    { if (loggedIn != null) {
+    { if (loggedIn > 0) {
       this.props.fetchCollection()
       }
     }
+    this.props.fetchMarket()
     return (
       <div>
-      { loggedIn > 0 ? <Home/> : null }
-      <Router>
-        <Switch>
-          { this.removeItems() }
-          <Route exact path="/home" component={Home}/>
-          </Switch>
-        </Router>
-    </div>
+      { loggedIn == null ? <Welcome/> : <Home/> }
+      </div>
   )
   }
 }
@@ -76,7 +50,7 @@ const mapDispatchToProps = dispatch => {
     },
     clearMarket: () => {
       dispatch(clearMarket())
-    }
+    },
   };
 };
 

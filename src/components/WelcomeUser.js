@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { LogOut } from './Logout'
 
-const WelcomeUser = (props) => {
+export const WelcomeUser = (props) => {
 return (
   <div>
     <div className="header">
-      <h1>E-BASEBALL</h1>
+      <img className="header" src="https://res.cloudinary.com/argustwo/image/upload/v1626590134/rhilewlap8q7btqf6b2n.jpg" alt="e-baseball-logo"/>
       <h2>A Marketplace for Baseball Trading Cards</h2>
       <LogOut/>
     </div>

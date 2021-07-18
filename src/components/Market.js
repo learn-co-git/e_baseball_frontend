@@ -1,11 +1,19 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux'
+import { connect, useDispatch, useSelector  } from 'react-redux'
 import { cardUpdate } from '../reducers/card'
 import '../css/card.css'
 
 const Market = props => {
 
   const dispatch = useDispatch()
+  let cards = useSelector(state => state.marketReducer)
+
+  let newCard
+  if(Array.isArray(cards[0])) {
+     newCard = cards[0]
+  } else {
+    newCard = cards
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -24,7 +32,7 @@ const Market = props => {
   }
 }
 
-  const market = props.cards.map(x => (<div key={x.id}><section><p>{x.player_name}...{x.year}</p><p>({x.description})...Price${x.price}</p></section>
+  const market = newCard.map(x => (<div key={x.id}><section><p>{x.player_name}...{x.year}</p><p>({x.description})...Price${x.price}</p></section>
   <img className="img" src={x.url} alt={x.player_name}/>{buyButton(x)}<br></br></div>))
 
   return market
@@ -33,7 +41,7 @@ const Market = props => {
 
 const mapStateToProps = state => {
   return {
-    cards: state.marketReducer[0],
+    cards: state.marketReducer,
     logged: state.userReducer.id
   }
 }

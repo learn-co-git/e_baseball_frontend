@@ -1,24 +1,29 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { LogOut } from './Logout'
 import NavBar from './NavBar'
+import { Route, Switch, BrowserRouter as Router, Redirect } from "react-router-dom";
+import LoginForm from './LoginForm'
+import SignupForm from './Signup'
 
-const Welcome = (props) => {
+
+export const Welcome = () => {
+
 return (
   <div>
     <div className="header">
-      <h1>E-BASEBALL</h1>
+      <img className="head" src="https://res.cloudinary.com/argustwo/image/upload/v1626590134/rhilewlap8q7btqf6b2n.jpg" alt="e-baseball-logo"/>
       <h2> The Marketplace for Baseball Trading Cards</h2>
-      { props.loggedIn > 0 ? <LogOut/> : <NavBar/> }
+      <Router>
+        <Redirect to="/"/>
+      <NavBar/>
+        <Switch>
+          <Route exact path="/login" component={LoginForm}/>
+          <Route exact path="/signup" component={SignupForm}/>
+          </Switch>
+      </Router>
+    </div>
+    <div>
+
     </div>
   </div>
   )
 }
-
-  const mapStateToProps = state => {
-    return ({
-      loggedIn: state.userReducer.id,
-    })
-  }
-
-export default (connect(mapStateToProps)(Welcome));

@@ -11,7 +11,7 @@ export const Cards = props => {
 
   const cards = props.cards.length > 0 ? props.cards.map(x => (<div key={x.id}><p>{x.player_name}</p><br>
 
-  </br><img className="img" src={x.url} alt={x.player_name}/><br></br></div>)) : <p>No Collection</p>
+  </br><img className="img" src={x.url} alt={x.player_name}/><br></br></div>)) : <p>You currently have no cards for sale</p>
 
   return cards
 }
