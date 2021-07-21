@@ -22,6 +22,7 @@ const Market = props => {
       user: event.target.user.value
     }
     dispatch(cardUpdate(buyDetails))
+    alert("Success! Please check your email for payment details.")
   }
 
   const buyButton = (x) => {

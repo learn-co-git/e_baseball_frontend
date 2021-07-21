@@ -1,5 +1,6 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
 import { newCard } from './newcard'
+import { marketSetup } from './market'
 
 const initialState = []
 
@@ -43,9 +44,8 @@ export function cardUpdate(buyDetails) {
   })
   .then(r => r.json())
   .then(response => {
-      alert("Success! Please check your email for payment details.")
-      console.log(response)
-      dispatch(addCollection(response))
+      dispatch(marketSetup())
+      reload()
     })
     .catch(console.log)
   }

@@ -31,18 +31,21 @@ const SignupForm = () => {
 
   return (
     <section>
-      <h2>Signup</h2>
-      <form>
+      <br></br>
+      <h3>Signup</h3>
+      <form className="sellcardDiv">
         <label>Username: </label>
         <input
+          className="logoutInput"
           type="text"
           name="username"
           value={username}
           onChange={onUsernameChange}
           />
-        <br/>
-        <label>Email: </label>
+
+        <label>Email:     </label>
         <input
+          className="logoutInput"
           type="text"
           name="email"
           value={email}
@@ -51,20 +54,22 @@ const SignupForm = () => {
         <br/>
         <label>Password: </label>
         <input
+          className="logoutInput"
           type="text"
           name="password"
           value={password}
           onChange={onPasswordChange}
           />
-        <br/>
+
         <label>Re-Enter Password: </label>
         <input
+          className="logoutInput"
           type="text"
           name="password2"
           value={password2}
           onChange={onPassword2Change}
           />
-        <button type="button" onClick={createUser}>Create</button>
+        <button className="button" type="button" onClick={createUser}>Create</button>
       </form>
     </section>
   )

@@ -68,5 +68,8 @@ h2 {
 }
 
 .sellcardDiv {
-
+ display: inline-block;
+ margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }

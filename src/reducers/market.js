@@ -1,6 +1,6 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
 
-let initialState = []
+const initialState = []
 
 export const marketSetup = createAction('market/marketSetup')
 
@@ -12,7 +12,7 @@ export const marketReducer = createReducer(initialState, (builder) => {
       state = state.push(action.payload)
     })
     .addCase(clearMarket, (state, action) => {
-      state = []
+      return []
     })
 })
 

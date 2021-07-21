@@ -1,6 +1,4 @@
-import { client } from './client'
-import { createAsyncThunk, createAction, createReducer } from '@reduxjs/toolkit'
-
+import { createAction, createReducer } from '@reduxjs/toolkit'
 
 export function fetchUser(loginDetails) {
   return async dispatch => {
@@ -43,8 +41,9 @@ export function getCurrentUser() {
   await fetch("http://127.0.0.1:3001/current")
   .then(r => r.json())
   .then(response => {
-    if (response.error) {
-      alert(response.error)
+    console.log(response)
+    if (response.notice === "No Current User") {
+      console.log(response.notice)
     } else {
       dispatch(addCurrentUser(response.data.attributes))
       }

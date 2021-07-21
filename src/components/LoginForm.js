@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import '../css/login.css'
-import { addCurrentUser, fetchUser } from '../reducers/current'
-import { unwrapResult } from '@reduxjs/toolkit'
+import { fetchUser } from '../reducers/current'
 
 const LoginForm = () => {
 
@@ -31,6 +30,7 @@ const LoginForm = () => {
       <form>
         <label>Username: </label>
         <input
+          className="logoutInput"
           type="text"
           name="username"
           value={username}
@@ -38,12 +38,13 @@ const LoginForm = () => {
           />
         <label>Password: </label>
         <input
+          className="logoutInput"
           type="text"
           name="password"
           value={password}
           onChange={onPasswordChange}
           />
-        <button type="button" onClick={saveLogin}>Login</button>
+        <button className="button" type="button" onClick={saveLogin}>Login</button>
         </form>
       </section>
   )
