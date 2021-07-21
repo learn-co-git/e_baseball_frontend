@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 import { useDispatch, connect } from 'react-redux'
 import { addNewCard } from '../reducers/card'
+import { clearCard } from '../reducers/newcard'
 import '../css/card.css'
 
 const SellCard = props => {
@@ -42,63 +43,73 @@ const SellCard = props => {
       setDescription('')
       setUrl('')
       setPrice('')
+    dispatch(clearCard())
+    alert("Success! Your card is now live.")
   }
 
     return (
-      <section>
+      <div className="sellcardDiv">
         <h2>Sell Card</h2>
+        <div className="logoutInput">
         <form>
           <label>Player: </label>
           <input
+            className="logoutInput"
             type="text"
             name="player_name"
             value={player_name}
             onChange={onPlayer_nameChange}
             />
-          <br/>
           <label>Year: </label>
           <input
+            className="logoutInput"
             type="text"
             name="year"
             value={year}
             onChange={onYearChange}
             />
-          <br/>
+
           <label>Brand: </label>
           <input
+            className="logoutInput"
             type="text"
             name="brand"
             value={brand}
             onChange={onBrandChange}
             />
-          <br/>
-          <label>Description: </label>
+
+          <label>Descrip: </label>
           <input
+            className="logoutInput"
             type="text"
             name="description"
             value={description}
             onChange={onDescriptionChange}
             />
-          <br/>
+
           <label>Price: </label>
             <input
+              className="logoutInput"
               type="text"
               name="price"
               value={price}
               onChange={onPriceChange}
               />
-            <br/>
+
             <label>Url: </label>
               <input
+                className="logoutInput"
                 type="text"
                 name="url"
                 value={url}
                 onChange={onUrlChange}
                 />
-              <br/>
+
               <button type="button" onClick={saveCard}>Sell</button>
             </form>
-          </section>
+          </div>
+
+          </div>
         )
   }
 

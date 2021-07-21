@@ -2,10 +2,23 @@ import { client } from './client'
 import { createAsyncThunk, createAction, createReducer } from '@reduxjs/toolkit'
 
 
-export const fetchUser = createAsyncThunk('currentuser/addCurrentUser', async loginDetails => {
-  const response = await client.post('http://localhost:3001/login', loginDetails)
-  return response.payload
-})
+export function fetchUser(loginDetails) {
+  return async dispatch => {
+    await fetch('http://localhost:3001/login', {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+        },
+      body: JSON.stringify(loginDetails)
+      })
+      .then(r => r.json())
+      .then(response => {
+        console.log(response)
+          dispatch(addCurrentUser(response.data.attributes))
+        })
+        .catch(console.log())
+    }
+}
 
 export function userCreate(loginDetails) {
   return async dispatch => {
@@ -27,14 +40,15 @@ export function userCreate(loginDetails) {
 
 export function getCurrentUser() {
   return async dispatch => {
-
-    try {
-  const result = await fetch("http://127.0.0.1:3001/current")
-  const data = await result.json()
-    dispatch(checkUser(data))
-    } catch (error) {
-
-    }
+  await fetch("http://127.0.0.1:3001/current")
+  .then(r => r.json())
+  .then(response => {
+    if (response.error) {
+      alert(response.error)
+    } else {
+      dispatch(addCurrentUser(response.data.attributes))
+      }
+    })
   }
 }
 
@@ -78,6 +92,7 @@ const checkUser = createAction('user/checkUser')
 export const userReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(addCurrentUser, (state, action) => {
+      console.log(action.payload)
       state.id = action.payload.id
       state.username = action.payload.username
       state.email = action.payload.email
@@ -90,12 +105,13 @@ export const userReducer = createReducer(initialState, (builder) => {
       state.rating = ""
     })
     .addCase(checkUser, (state, action) => {
-      state.id = action.payload.payload.id
-      state.username = action.payload.payload.username
-      state.email = action.payload.payload.email
-      state.rating = action.payload.payload.rating
+      state.id = action.payload.id
+      state.username = action.payload.username
+      state.email = action.payload.email
+      state.rating = action.payload.rating
     })
     .addCase(addNewUser, (state, action) => {
+      console.log(action.payload)
       state.id = action.payload.id
       state.username = action.payload.username
       state.email = action.payload.email

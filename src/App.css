@@ -1,9 +1,9 @@
 .header {
   margin: auto;
-  padding: 240px;
+  padding: 257px;
   text-align: center;
   background: #1abc9c;
-  color: white;
+  color: black;
   font-size: 30px;
 }
 
@@ -20,7 +20,53 @@
   border-radius: 16px;
 }
 
+form {
+  border-radius: 121px;
+}
+
 .head {
   text-align: center;
   margin: auto;
+  border-radius: 501px;
+}
+
+h3 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+.logout {
+  pointer-events: auto;
+	cursor: pointer;
+	background: #e7e7e7;
+	border: none;
+	padding: 1.5rem 3rem;
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
+	position: relative;
+	display: inline-block;
+
+}
+
+.store {
+ justify-content: space-around;
+}
+
+.logoutInput {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 3px 5px;
+  text-align: right;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sellcardDiv {
+
 }

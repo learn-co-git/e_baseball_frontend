@@ -18,15 +18,15 @@ export class Home extends React.Component {
         </Router>
         <WelcomeUser/>
         <div>
-          <section>
+          <div>
             <h2>Market Place</h2>
             <Market/>
-            </section>
-          <section>
+            </div>
+          <div className="store">
             <h2>Your Store</h2>
-            <SellCard/>
           <Cards/>
-          </section>
+          <SellCard/>
+          </div>
         </div>
           <footer>
           </footer>

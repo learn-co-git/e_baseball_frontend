@@ -8,7 +8,7 @@ export const LogOut = () => {
   const id = useSelector((state) => state.userReducer.id)
 
   return (
-    <form onSubmit={(event) => {
+    <form className="logout" onSubmit={(event) => {
         event.preventDefault()
         dispatch(userLogOut(id))
         dispatch(clearCollection())

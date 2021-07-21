@@ -23,7 +23,9 @@ class App extends React.Component {
     this.props.fetchMarket()
     return (
       <div>
+        
       { loggedIn == null ? <Welcome/> : <Home/> }
+
       </div>
   )
   }

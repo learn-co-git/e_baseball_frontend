@@ -6,7 +6,7 @@ export const WelcomeUser = (props) => {
 return (
   <div>
     <div className="header">
-      <img className="header" src="https://res.cloudinary.com/argustwo/image/upload/v1626590134/rhilewlap8q7btqf6b2n.jpg" alt="e-baseball-logo"/>
+      <img className="head" src="https://res.cloudinary.com/argustwo/image/upload/v1626590134/rhilewlap8q7btqf6b2n.jpg" alt="e-baseball-logo"/>
       <h2>A Marketplace for Baseball Trading Cards</h2>
       <LogOut/>
     </div>

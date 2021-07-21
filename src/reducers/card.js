@@ -1,13 +1,17 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
+import { newCard } from './newcard'
 
 const initialState = []
 
 export const addCollection = createAction('collection/addCollection')
 export const clearCollection = createAction('collection/clearCollection')
 
+
 export const collectionReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(addCollection, (state, action) => {
+      console.log(action.payload)
+      console.log("yeah")
       state = state.push(action.payload)
     })
     .addCase(clearCollection, (state, action) => {
@@ -59,10 +63,16 @@ export function addNewCard(cardDetails) {
   })
   .then(r => r.json())
   .then(response => {
-      alert("Success! Your card is now live.")
       console.log(response)
       dispatch(addCollection(response))
+      dispatch(newCard(response))
+      reload()
+      return
     })
     .catch(console.log)
   }
+}
+
+function reload() {
+  window.location.reload(true);
 }

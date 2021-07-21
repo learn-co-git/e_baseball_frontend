@@ -14,19 +14,12 @@ const LoginForm = () => {
   const onUsernameChange = e => setUsername(e.target.value)
   const onPasswordChange = e => setPassword(e.target.value)
 
-  const saveLogin = async () => {
+  const saveLogin = () => {
     const loginDetails = {
       username: username,
       password: password
     }
-    try {
-      const result = await dispatch(fetchUser(loginDetails))
-      const user = unwrapResult(result)
-      dispatch(addCurrentUser(user))
-      }
-      catch (err) {
-         console.error('Failed to save the user: ', err)
-       }
+      dispatch(fetchUser(loginDetails))
        setUsername('')
        setPassword('')
   }
